@@ -1,8 +1,13 @@
 // Enemies our player must avoid
-class Enemy {
-    constructor(x, y, speed){
-      this.x = x;
-      this.y = y;
+class Coords {
+  constructor(x, y){
+    this.x = x;
+    this.y = y;
+  }
+}
+class Enemy extends Coords{
+    constructor(x,y, speed){
+      super(x,y);
       this.speed = speed;
       this.sprite = "images/enemy-bug.png"
     }
@@ -15,25 +20,15 @@ class Enemy {
 
     }
     startNew(){
-      if(this.x>500){
+      if(this.x > 500){
         this.x = -60
       }
     }
 }
 
-/*
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};
-*/
-
-
-class Player {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
+class Player extends Coords{
+    constructor(x,y){
+      super(x,y);
         this.sprite = "images/char-boy.png"
     }
 
